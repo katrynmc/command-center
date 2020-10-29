@@ -1,0 +1,8 @@
+{
+  "name": "blast-off",
+  "version": "0.1.0",
+  "description": "A tool for managing the development of an ecosystem of micro-frontends",
+  "main": "index.js",
+  "author": "Katryn McIntosh",
+  "license": "MIT"
+}
