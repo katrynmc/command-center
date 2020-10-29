@@ -4,5 +4,9 @@
   "description": "A tool for managing the development of an ecosystem of micro-frontends",
   "main": "index.js",
   "author": "Katryn McIntosh",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "ink": "^3.0.8",
+    "react": "^17.0.1"
+  }
 }
