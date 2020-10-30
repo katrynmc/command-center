@@ -5,6 +5,7 @@ const PROJECTS = [
       { name: "Run Alone", command: "Foo" },
       { name: "Run with Backend", command: "Bar" },
     ],
+    path: "/Users/cowboydog/work/my-project"
   },
 ];
 

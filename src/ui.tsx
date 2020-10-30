@@ -2,7 +2,7 @@ import React, { FC, useState, useEffect } from "react";
 import { Static, Text, Box, useInput, useApp } from "ink";
 import SelectInput from "ink-select-input";
 
-import PROJECTS, {AppOption, Script} from "../project-config.js";
+import PROJECTS, {Project, Script} from "../project-config.js";
 
 import { exec } from "child_process";
 
@@ -12,7 +12,7 @@ type Log = { id: number; content: string };
 const App: FC<{ name?: string }> = () => {
   const { exit } = useApp();
 
-  const [microApp, setMicroApp] = useState<AppOption | null>(null);
+  const [project, setProject] = useState<Project | null>(null);
   const [scriptToRun, setScript] = useState<Script | null>(null);
   const [selectedPane, setSelectedPane] = useState<"PROJECT" | "PROCESS">(
     "PROJECT"
@@ -22,17 +22,17 @@ const App: FC<{ name?: string }> = () => {
   const [logs, setLogs] = useState<Array<Log>>(LOG_DEFAULT);
 
   const handleSelectProject = (item: ListOption) => {
-    const newMicroApp = PROJECTS.find((project) => project.name === item.label);
-    if (newMicroApp) {
-      setMicroApp(newMicroApp);
+    const newProject = PROJECTS.find((project) => project.name === item.label);
+    if (newProject) {
+      setProject(newProject);
       setSelectedPane("PROCESS");
     }
   };
 
   const handleRunScript = (item: ListOption) => {
-    if (microApp) {
-      const newScript = microApp.scripts.find(
-        (project) => project.name === item.label
+    if (project) {
+      const newScript = project.scripts.find(
+        (script) => script.name === item.label
       );
 
       if (newScript) {
@@ -80,8 +80,8 @@ const App: FC<{ name?: string }> = () => {
   });
 
   let secondPane;
-  if (microApp) {
-    const currentScripts = microApp.scripts.map((script) => {
+  if (project) {
+    const currentScripts = project.scripts.map((script) => {
       return { label: script.name, value: script.name };
     });
 
@@ -92,7 +92,7 @@ const App: FC<{ name?: string }> = () => {
 
     secondPane = (
       <Box borderStyle="single" flexDirection="column">
-        <Text>{microApp.name}</Text>
+        <Text>{project.name}</Text>
 
         <SelectInput
           isFocused={selectedPane === "PROCESS"}
