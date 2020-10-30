@@ -1,13 +1,13 @@
-export interface Script {
+interface Script {
   name: string;
   command: string
 }
 
-export interface AppOption {
+interface AppOption {
   name: string;
   scripts: Array<Script>;
 }
 
-declare const Projects: Array<AppOption>;
+type Projects = Array<AppOption>;
 
 export default Projects;
