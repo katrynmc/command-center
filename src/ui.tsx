@@ -4,7 +4,7 @@ import SelectInput from "ink-select-input";
 
 import PROJECTS, {AppOption, Script} from "../project-config.js";
 
-const { exec } = require("child_process");
+import { exec } from "child_process";
 
 type ListOption = { label: string; value: string };
 type Log = { id: number; content: string };
@@ -44,20 +44,26 @@ const App: FC<{ name?: string }> = () => {
   useEffect(() => {
     if (scriptToRun) {
       const myShellScript = exec("sh ./test.sh");
-      myShellScript.stdout.on("data", (data: string) => {
-        console.log(data);
 
-        setLogs((previousLogs) => [
-          ...previousLogs,
-          {
-            id: previousLogs.length,
-            content: data,
-          },
-        ]);
-      });
-      myShellScript.stderr.on("data", (data: string) => {
-        console.error(data);
-      });
+      if (myShellScript.stdout) {
+        myShellScript.stdout.on("data", (data: string) => {
+          console.log(data);
+
+          setLogs((previousLogs) => [
+            ...previousLogs,
+            {
+              id: previousLogs.length,
+              content: data,
+            },
+          ]);
+        });
+      }
+
+      if (myShellScript.stderr) {
+        myShellScript.stderr.on("data", (data: string) => {
+          console.error(data);
+        });
+      }
 
       setScript(null);
     }
