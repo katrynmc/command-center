@@ -43,7 +43,7 @@ const App: FC<{ name?: string }> = () => {
 
   useEffect(() => {
     if (scriptToRun) {
-      const myShellScript = exec("sh ./test.sh");
+      const myShellScript = exec(`sh ./start.sh -p "${project?.path}" -s "${scriptToRun.command}"`);
 
       if (myShellScript.stdout) {
         myShellScript.stdout.on("data", (data: string) => {
