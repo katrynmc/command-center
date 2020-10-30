@@ -2,13 +2,11 @@
 
 A way to easily spin up micro-frontends and/or libraries within an ecosystem.
 
-
 ## Install
 
 ```bash
 $ npm install --global blast-off
 ```
-
 
 ## CLI
 
