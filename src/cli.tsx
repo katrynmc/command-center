@@ -7,13 +7,13 @@ import App from "./ui";
 const cli = meow(
   `
 	Usage
-	  $ blast-off
+	  $ command-center
 
 	Options
 		--name  Your name
 
 	Examples
-	  $ blast-off --name=Jane
+	  $ command-center --name=Jane
 	  Hello, Jane
 `,
   {
