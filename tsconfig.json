@@ -1,8 +1,9 @@
 {
-  "extends": "@sindresorhus/tsconfig",
+  "extends": "@tsconfig/recommended/tsconfig.json",
   "compilerOptions": {
     "jsx": "react",
     "esModuleInterop": true,
+    "noImplicitAny": true,
     "outDir": "dist"
   },
   "include": ["src"]
