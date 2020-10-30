@@ -1,25 +1,25 @@
-# blast-off
+# command-center
 
 A way to easily spin up micro-frontends and/or libraries within an ecosystem.
 
 ## Install
 
 ```bash
-$ npm install --global blast-off
+$ npm install --global command-center
 ```
 
 ## CLI
 
 ```
-$ blast-off --help
+$ command-center --help
 
   Usage
-    $ blast-off
+    $ command-center
 
   Options
     --name  Your name
 
   Examples
-    $ blast-off --name=Jane
+    $ command-center --name=Jane
     Hello, Jane
 ```
