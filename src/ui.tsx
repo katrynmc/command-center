@@ -47,8 +47,6 @@ const App: FC<{ name?: string }> = () => {
 
       if (myShellScript.stdout) {
         myShellScript.stdout.on("data", (data: string) => {
-          console.log(data);
-
           setLogs((previousLogs) => [
             ...previousLogs,
             {
@@ -122,7 +120,7 @@ const App: FC<{ name?: string }> = () => {
       <Static items={logs}>
         {(log) => (
           <Box key={log.id}>
-            <Text color="green">✔ {log.content}</Text>
+            <Text color="green">{log.content}</Text>
           </Box>
         )}
       </Static>

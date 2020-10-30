@@ -27,8 +27,8 @@ then
 fi
 
 # Begin script in case all parameters are correct
-echo "$pathParameter"
-echo "$scriptParameter"
+echo "Project Path: $pathParameter"
+echo "Running Script: $scriptParameter"
 
 cd $pathParameter
 yarn $scriptParameter
