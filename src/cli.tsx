@@ -9,12 +9,8 @@ const cli = meow(
 	Usage
 	  $ command-center
 
-	Options
-		--name  Your name
-
 	Examples
-	  $ command-center --name=Jane
-	  Hello, Jane
+	  $ command-center
 `,
   {
     flags: {
